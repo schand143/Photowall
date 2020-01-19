@@ -29,6 +29,14 @@ class Main extends Component {
         }
       ]
     };
+    this.removePhoto = this.removePhoto.bind(this);
+  }
+
+  removePhoto(postRemove) {
+    console.log(postRemove.description);
+    this.setState(state => ({
+      posts: state.posts.filter(post => post !== postRemove)
+    }));
   }
 
   render() {
@@ -36,7 +44,7 @@ class Main extends Component {
       <div>
         {' '}
         <Title title={'Photowall'} />
-        <PhotoWall posts={this.state.posts} />
+        <PhotoWall posts={this.state.posts} onRemovePhoto={this.removePhoto} />
       </div>
     );
   }
