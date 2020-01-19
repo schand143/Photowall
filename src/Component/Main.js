@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Title from './Title';
-import Photowall from './PhotoWall';
+import PhotoWall from './PhotoWall';
 
 const posts = [
   {
@@ -31,7 +31,7 @@ class Main extends Component {
       <div>
         {' '}
         <Title title={'Photowall'} />
-        <Photowall posts={posts} />
+        <PhotoWall posts={posts} />
       </div>
     );
   }
