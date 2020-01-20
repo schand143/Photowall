@@ -30,6 +30,7 @@ class Main extends Component {
       ]
     };
     this.removePhoto = this.removePhoto.bind(this);
+    console.log('Constructor with 0 element');
   }
 
   removePhoto(postRemove) {
@@ -39,7 +40,18 @@ class Main extends Component {
     }));
   }
 
+  componentDidMount() {
+    console.log('Component did mount');
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    console.log(prevState.posts);
+    console.log(this.state);
+    // alert('re-render');
+  }
+
   render() {
+    console.log('Render');
     return (
       <div>
         {' '}
