@@ -6,18 +6,13 @@ function PhotoWall(props) {
   return (
     <div>
       <Link to='/AddPhoto' className='addIcon'></Link>
-      {/* <button onClick={props.onNavigate} className='addIcon'></button> */}
       <div className='photoGrid'>
         {props.posts
           .sort(function(x, y) {
             return y.id - x.id;
           })
           .map((post, index) => (
-            <Photo
-              key={index}
-              post={post}
-              onRemovePhoto={props.onRemovePhoto}
-            />
+            <Photo key={index} post={post} {...props} index={index} />
           ))}
       </div>
     </div>
@@ -25,8 +20,7 @@ function PhotoWall(props) {
 }
 
 PhotoWall.prototype = {
-  post: PropTypes.array.isRequired,
-  onRemovePhoto: PropTypes.func.isRequired
+  post: PropTypes.array.isRequired
 };
 
 export default PhotoWall;
