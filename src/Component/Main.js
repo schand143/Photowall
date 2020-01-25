@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Title from './Title';
 import PhotoWall from './PhotoWall';
 import AddPhoto from './AddPhoto';
-import { Route } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 import { removePost } from '../redux/action';
 
 class Main extends Component {
@@ -15,29 +15,25 @@ class Main extends Component {
     // console.log('data', this.props.posts);
     return (
       <div>
+        <h1>
+          <Link to='/'>Photowall</Link>{' '}
+        </h1>
         <Route
           exact
           path='/'
           render={() => (
             <div>
-              <Title title={'Photowall'} />
               <PhotoWall {...this.props} />
             </div>
           )}
         />
-        {/* 
+
         <Route
           path='/AddPhoto'
           render={({ history }) => (
-            <AddPhoto
-              onAddPhoto={addedPost => {
-                // console.log(addedPost);
-                this.addPhoto(addedPost);
-                history.push('/');
-              }}
-            />
+            <AddPhoto {...this.props} onHistory={history} />
           )}
-        /> */}
+        />
       </div>
     );
   }
