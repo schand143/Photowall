@@ -1,6 +1,20 @@
 import _posts from '../data/posts';
+import { combineReducers } from 'redux';
 
-const postReducer = function posts(state = _posts, action) {
+function comments(state = [], action) {
+  // console.log('comment reducer');
+
+  switch (action.type) {
+    case 'ADD_COMMENT':
+      return [...state, action.comment];
+    default:
+      return state;
+  }
+  return state;
+}
+
+function posts(state = _posts, action) {
+  // console.log('post reduces');
   console.log('action:', action.index);
 
   switch (action.type) {
@@ -18,6 +32,8 @@ const postReducer = function posts(state = _posts, action) {
   }
 
   return state;
-};
+}
 
-export default postReducer;
+const rootReducer = combineReducers({ posts, comments });
+
+export default rootReducer;

@@ -8,11 +8,12 @@ class Single extends Component {
     const { match, posts } = this.props;
     const id = Number(match.params.id);
     const post = posts.find(post => post.id === id);
-    console.log(post);
+    const comments = this.props.comments;
+    // console.log(post);
     return (
       <div className='single-photo'>
         <Photo post={post} />
-        <Comments />
+        <Comments addComment={this.props.addComment} comments={comments} />
       </div>
     );
   }
