@@ -15,7 +15,7 @@ class Single extends Component {
       <div className='single-photo'>
         <Photo post={post} {...this.props} index={index} />
         <Comments
-          addComment={this.props.addComment}
+          starAddingComment={this.props.starAddingComment}
           comments={comments}
           id={id}
         />

@@ -38,6 +38,8 @@ function posts(state = _posts, action) {
       return [...state, action.post];
     case 'LOAD_POSTS':
       return action.posts;
+    case 'LOAD_COMMENTS':
+      return action.comments;
     default:
       return state;
   }
