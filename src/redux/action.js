@@ -57,21 +57,6 @@ export function starAddingComment(comment, postId) {
   };
 }
 
-// export function startLoadingComments() {
-//   return dispatch => {
-//     return database
-//       .ref('comments')
-//       .once('value')
-//       .then(snapshot => {
-//         let comments = {};
-//         snapshot.forEach(childSnapshot => {
-//           comments[childSnapshot.key] = Object.values(childSnapshot.val());
-//         });
-//         dispatch(loadComments(comments));
-//       });
-//   };
-// }
-
 export function startLoadingComments() {
   return dispatch => {
     return database
@@ -79,8 +64,10 @@ export function startLoadingComments() {
       .once('value')
       .then(snapshot => {
         let comments = {};
+
         snapshot.forEach(childSnapshot => {
           comments[childSnapshot.key] = Object.values(childSnapshot.val());
+          console.log('data', comments);
         });
         dispatch(loadComments(comments));
       });
@@ -90,7 +77,7 @@ export function startLoadingComments() {
 export function loadComments(comments) {
   return {
     type: 'LOAD_COMMENTS',
-    comments
+    comments: comments
   };
 }
 

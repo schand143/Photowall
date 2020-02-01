@@ -1,7 +1,7 @@
 import _posts from '../data/posts';
 import { combineReducers } from 'redux';
 
-function comments(state = [], action) {
+function comments(state = {}, action) {
   // console.log('comment reducer');
 
   switch (action.type) {

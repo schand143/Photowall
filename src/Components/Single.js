@@ -4,14 +4,11 @@ import Comments from './Comments';
 
 class Single extends Component {
   render() {
-    // console.log('hi', this.props.match.params.id);
     const { match, posts } = this.props;
     const id = Number(match.params.id);
     const post = posts.find(post => post.id === id);
     const comments = this.props.comments[match.params.id] || [];
-    // console.log(post);
     const index = this.props.posts.findIndex(post => post.id === id);
-
     if (this.props.loading === true) {
       return <div className='loader'> ...loading </div>;
     } else if (post) {
@@ -19,14 +16,14 @@ class Single extends Component {
         <div className='single-photo'>
           <Photo post={post} {...this.props} index={index} />
           <Comments
-            starAddingComment={this.props.starAddingComment}
+            startAddingComment={this.props.startAddingComment}
             comments={comments}
             id={id}
           />
         </div>
       );
     } else {
-      return <h1>.... no post found </h1>;
+      return <h1> ...no post found </h1>;
     }
   }
 }

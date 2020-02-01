@@ -15,13 +15,12 @@ class Main extends Component {
   }
 
   render() {
-    // console.log(this.props);
-    // console.log('data', this.props.posts);
     return (
       <div>
         <h1>
-          <Link to='/'>Photowall</Link>{' '}
+          <Link to='/'> Photowall </Link>
         </h1>
+
         <Route
           exact
           path='/'
@@ -40,6 +39,7 @@ class Main extends Component {
         />
 
         <Route
+          exact
           path='/single/:id'
           render={params => (
             <Single loading={this.state.loading} {...this.props} {...params} />
