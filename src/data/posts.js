@@ -1,3 +1,4 @@
-const posts = [];
 
-export default posts;
+const posts = []
+
+  export default posts
